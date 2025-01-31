@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+
+    <title>La rubrique musicale d'Haya</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="Images/favicon.png" />
+
+</head>
+
+<body>
+    <audio src="Musiques/Hind's hall.mp4"></audio>
+    <div>
+        <div class="casque"><img src="Images/Casque2.png" alt="Image d'un casque "></div>
+
+        <h1>La rubrique musicale d'Haya </h1>
+    </div>
+
+    <div class="liste-musiques"></div>
+
+    <section>
+        <h2> Vos musiques : </h2>
+        <form>
+            <fieldset>
+                <legend>Ajouter votre musique : </legend>
+                <p>Les champs marqués d'un astérisque (*) sont obligatoires.</p>
+                <p>
+                    <label for="titre"> Titre de la musique* : </label>
+                    <input type="text" id="titre" required>
+                </p>
+
+                <p>
+                    <label for="artiste">Artiste* : </label>
+                    <input type="text" id="artiste" required>
+                </p>
+
+                <p>
+                    <label for="genres">Genre de la musique : </label>
+                    <select id="genres">
+                        <option value="genre">Sélectionnez un genre</option>
+                        <option value="country">Country</option>
+                        <option value="electro">Electro</option>
+                        <option value="jazz">Jazz</option>
+                        <option value="métal">Métal</option>
+                        <option value="pop">Pop</option>
+                        <option value="rap">Rap</option>
+                        <option value="rnb">RNB</option>
+                        <option value="rock">Rock</option>
+                        <option value="autre">Autre</option>
+
+                    </select>
+                </p>
+
+                <p>
+                    <label for="url">URL de la musique* :</label>
+                    <input type="url" id="url" required>
+                </p>
+
+                <p>
+                    <label for="description">Description de la musique* :</label> <br>
+                    <textarea id="description" rows="7" cols="45" required></textarea>
+                </p>
+
+                <p>
+                    <input type="submit" value="Valider" class="valider">
+                </p>
+            </fieldset>
+        </form>
+
+
+        <div class="internaute">
+
+
+        </div>
+    </section>
+
+    <footer>
+        <h4> Crédits : </h4>
+
+        <p> Ce site est le fruit du travail d'Haya Chaibi. La réutilisation ou la copie de ce site est interdite sans
+            mon accord.
+
+            Les extraits de musiques proviennent de Youtube <br>
+            Voici le nom des personnes à qui appartiennent les chansons:
+        <ul>
+            <li>C'est la vie : Khaled</li>
+            <li>Hind's Hall : Macklemore</li>
+            <li>Zina : Babylone</li>
+            <li>Bengarden : Ak Prod</li>
+        </ul>
+
+
+
+        Pour les photos:
+
+        <ul>
+            <li>Le casque provient du site JBL</li>
+            <li> Les telephones sont des images libre de droit trouvé sur internet</li>
+            <li>Au milieu de ces telephones, on retrouve les couvertures des musiques appartenant aux artistes de ces
+                musiques</li>
+        </ul>
+
+
+        </p>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
