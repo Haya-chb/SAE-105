@@ -1,0 +1,372 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+audio {
+    display: none
+}
+
+.pause {
+    display: none;
+}
+
+body {
+    background-color: rgb(0, 0, 0);
+    margin: 0;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 800px;
+
+
+}
+
+h1 {
+    font-family: "Playfair Display", serif;
+    padding-left: 20px;
+    color: white;
+    font-size: 4rem;
+    margin: 0%;
+
+
+}
+
+header img {
+    max-width: 450px;
+}
+
+.liste-musiques {
+    min-height: 1790px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.liste-musiques section {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+}
+
+.text {
+    color: white;
+}
+
+section {
+    color: white;
+}
+
+
+.background-image {
+
+    width: 300px;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+}
+
+
+.element {
+
+    text-align: center;
+    padding: 0px;
+    width: 150px;
+    margin-left: 80px;
+    margin-top: 220px;
+
+}
+
+
+
+.description {
+
+    display: flex;
+    flex-direction: column;
+    max-width: 250px;
+    background-color: #6e7a9a;
+    border: rgb(254, 251, 251);
+    border-style: inset;
+    border-radius: 10px;
+    padding:10px
+}
+
+
+
+
+
+.description a {
+
+    height: 20px;
+    color: rgb(242, 242, 245);
+    text-decoration: none;
+    background-color: rgb(206, 67, 67);
+    margin: 0;
+}
+
+.description a:hover {
+
+    background-color: rgb(142, 39, 39);
+    transition: background-color 0.3s;
+}
+
+
+
+
+.phrase {
+    color: black;
+    width: 150px;
+    height: fit-content;
+    margin: 0;
+    padding: 5px;
+
+}
+
+.musiqueDescription {
+
+
+    color: #ffffff;
+    max-width: 800px;
+    text-align: left;
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.buttonDescription {
+    color: #7f8cac;
+    border-radius: 0%;
+    padding: 5px;
+    margin: 0;
+    width: 100px;
+}
+
+button {
+    background-color: rgb(255, 255, 255);
+    border-style: none;
+    border-radius: 2rem;
+}
+
+button:hover {
+    background-color: black;
+    color: #979797;
+}
+
+label {
+    color: black;
+}
+
+fieldset {
+    border-style: dashed;
+    border-color: #6e7a9a;
+    color: black;
+}
+
+legend {
+    color: #6e7a9a;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.2rem;
+}
+
+h2 {
+    font-family: "Playfair Display", serif;
+    margin: 40px;
+    font-size: 2rem;
+}
+
+form {
+    width: 400px;
+    margin: auto;
+    background-color: white;
+    padding: 6px;
+}
+
+
+
+h4 {
+    font-family: "Playfair Display", serif;
+    font-size: 1.3rem;
+}
+
+footer {
+
+    justify-content: center;
+
+    margin: 0;
+
+}
+
+ul {
+    list-style: none;
+}
+
+
+
+
+details {
+    border: 1px solid;
+    padding: 0 1rem;
+    color: rgb(253, 253, 253);
+    background-color: #7f8cac;
+    margin: 20px 20px;
+    padding: 6px;
+    text-align: center;
+
+}
+
+
+
+
+details[open] {
+    padding-bottom: 1em;
+}
+
+summary {
+    padding: 1rem 2em 1rem 0;
+    font-size: 1.25rem;
+    font-weight: bold;
+
+}
+
+summary {
+    position: relative;
+}
+
+
+
+summary::marker {
+    content: none;
+}
+
+summary::before,
+summary::after {
+    content: '';
+}
+
+summary::before,
+summary::after {
+    width: .75em;
+    height: 0;
+    border-bottom: 2px solid;
+    position: absolute;
+    top: calc(50% - 1px);
+    right: 0;
+    transform: translateY(-50%);
+}
+
+summary::after {
+    transform: rotate(90deg);
+    transform-origin: 50% 50%;
+}
+
+[open] summary::after {
+    transform: rotate(0deg);
+
+}
+
+.lien {
+    color: #6e7a9a;
+    text-decoration: none;
+    margin: 10px;
+    display: block;
+    text-align: left;
+    font-size: 1.5rem;
+}
+
+.lien:hover {
+    color: #fbf5f5;
+}
+
+
+@media (width >=700px) {
+
+    .liste-musiques {
+        flex-direction: row;
+        flex-wrap: wrap;
+        min-height: auto;
+    }
+
+    details {
+        max-width: 900px;
+        margin: 20px auto;
+    }
+
+    .liste-musiques section {
+        width: 100%;
+    }
+
+    header {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    header img {
+        max-width: 500px;
+        ;
+    }
+
+}
+
+@media (width >=1200px) {
+
+    .liste-musiques section {
+        align-items: left;
+
+    }
+
+    header {
+        margin: 80px 0;
+        height: fit-content;
+    }
+
+    h1 {
+        font-size: 7rem;
+    }
+
+    header img {
+        max-width: 700px;
+    }
+}
