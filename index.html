@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
 
-    <title>La rubrique musicale d'Haya</title>
+    <title>MusicoDiarie</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="Images/favicon.png" />
 
@@ -18,24 +18,26 @@
     
     <header id="haut">
 
-        <a href="">Mes musiques</a>
-        <a href="">À propos</a>
-        <a href="">Vos musiques</a>
+        <a href="#mesmusiques">Mes musiques</a>
+        <a href="#àpropos">À propos</a>
+        <a href="#vosmusiques">Vos musiques</a>
+        <button class="credits"> Crédits</button>
+
 
 
         <h1>MusicoDiarie d'Haya CHB</h1>
     </header>
 
-    <div class="liste-musiques"></div>
+    <div id = "mesmusiques" class="liste-musiques"></div>
 
 
 
- <section>
+ <section id = "àpropos">
 
     <p>Depuis que je suis en détox de musiques, celles qui résonnent le plus en moi sont celles qui me rappellent d’où je viens ou des souvenirs d’enfance. <br>
     Maintenant montrer moi qui vous êtes à travers les musiques qui résonnent en vous.</p>
 
-    <buton> Ajouter votre musique</buton>
+    <button> Ajouter votre musique</button>
 
  </section>
 
@@ -67,22 +69,32 @@
                 </p>
 
                 <p>
-                    <input type="submit" value="Valider" class="valider">
+                    <input type="button" value="Ajouter" class="valider">
                 </p>
             </fieldset>
         </form>
 
     
 
+        <section>
+
 <h2> Vos musiques : </h2>
 
-        
-        <details>
-            <summary>
-                <h4> Crédits </h4>
-            </summary>
-            <p> Ce site est le fruit du travail d'Haya Chaibi. La réutilisation ou la copie de ce site est interdite sans
-                mon accord.
+<div id = "vosmusiques">
+
+
+</div>
+
+
+        </section>
+
+
+        <span>
+
+<h2> Crédits </h2>
+            
+            <p> 
+                Ce site est le fruit du travail d'Haya Chaibi. La réutilisation ou la copie de ce site est interdite sansmon accord.
                 Les extraits de musiques proviennent de Youtube <br>
                 Voici le nom des personnes à qui appartiennent les chansons:
             <ul>
@@ -93,7 +105,12 @@
             </ul>
             
             </p>
-        </details>
+
+
+        </span>
+        
+                
+       
 
         <a class="lien" href="#haut">Retour en haut</a>
 
