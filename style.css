@@ -18,6 +18,20 @@ body {
     color: #fbf5f5;
 }
 
+
+/* Par défaut, cacher les éléments avec la classe .hidden */
+.hidden {
+    display: none;
+}
+
+/* Classe pour afficher les éléments */
+.visible {
+    display: flex;
+}
+
+
+
+
 /* ////////////////////////////////////////////// cliquable //////////////////////////////////////////////////*/
 
 header {
@@ -77,15 +91,6 @@ h1 {
 
 
 /* //////////////// c'est par là pour modifier les images du telephones et la positions du texte  ///////////*/
-.background-image {
-
-    width: 300px;
-    height: 400px;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    display: flex;
-}
 
 
 .element {
@@ -96,20 +101,6 @@ h1 {
     margin-left: 80px;
     margin-top: 220px;
 
-}
-
-
-
-.description {
-
-    display: flex;
-    flex-direction: column;
-    max-width: 250px;
-    background-color: #6e7a9a;
-    border: rgb(254, 251, 251);
-    border-style: inset;
-    border-radius: 10px;
-    padding:10px
 }
 
 .musiqueDescription {
@@ -175,14 +166,6 @@ h2 {
 h4 {
     font-family: "Playfair Display", serif;
     font-size: 1.3rem;
-}
-
-footer {
-
-    justify-content: center;
-
-    margin: 0;
-
 }
 
 ul {

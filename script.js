@@ -30,24 +30,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
         section.innerHTML = `
         
-            <span class="background-image" style='background-image: url("${item.image}"); '>
+           
                 <span class="element">
                     <h3><em>${item.musique}</em></h3>
                     <p><button class="play" id="play-${numCase}">⏵</button></p>
                     <p><button class="pause" id="pause-${numCase}" style="display:none;">⏸</button></p>
-                    <button class="buttonDescription" id="button-${numCase}">Pourquoi cette musique ? </button>
-                </span> 
                 
-            </span>
-            
-            <section class="description" id="description-${numCase}" style="display:none;">
-            
+                
+             
             <div class=musiqueDescription>${item.descriptionMusicale} </div>
-            <p class ="phrase"> Pour en écouter plus :</p>
-            <a href="${item.Youtube}"  title="Nouvelle fenêtre" alt="Clip de la musique sur YouTube">YouTube</a>
+            <a href="${item.Youtube}"  title="Nouvelle fenêtre" alt="Clip de la musique sur YouTube">Ecouter sur Youtube</a>
        
             <audio id="audio-${numCase}" src="${item.url}" type="audio/mp3"></audio>
-           
+           </span> 
             
         `;
 
@@ -102,7 +97,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-    document.querySelectorAll('.buttonDescription').forEach(function (button) {
+   /* document.querySelectorAll('.buttonDescription').forEach(function (button) {
         button.addEventListener("click", function () {
             var index = button.id.split('-')[1];
             var description = document.getElementById(`description-${index}`);
@@ -116,10 +111,11 @@ document.addEventListener("DOMContentLoaded", function () {
             if (description.style.display === "none") {
                 description.style.display = "flex";
             } else {
-                description.style.display = "none";
+                description.style.display = "none";''
             }
         });
     });
+*/
 
 
     var titre = document.getElementById('titre');
@@ -154,3 +150,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+/* Idée de mon code pour les boutons : 
+
+je selections tous les boutons qui ont la classe .popup */
+
+
+document.querySelectorAll('.popup').forEach(function (button) {
+    button.addEventListener("click", function () {
+        // Récupérer l'ID du span ciblé en utilisant l'attribut 'data-target' du bouton
+        var spanId = button.getAttribute('data-target');
+        var span = document.getElementById(spanId);
+
+        // Alterner entre les classes 'hidden' et 'visible'
+        span.classList.toggle('hidden');
+        span.classList.toggle('visible');
+    });
+});
