@@ -33,13 +33,22 @@ document.addEventListener("DOMContentLoaded", function () {
            
                 <span class="element">
                     <h3><em>${item.musique}</em></h3>
+                    <p> Par : ${item.artiste} </p>
+                <span class=musiqueDescription>${item.descriptionMusicale} </span>
+
+                <a href="${item.Youtube}"  title="Nouvelle fenêtre" alt="Clip de la musique sur YouTube"class="youtube">Ecouter sur Youtube</a>
+                    <span class=controle>
+                    <p><button class="next" id="play-${numCase}">Précédent</button></p>
+
                     <p><button class="play" id="play-${numCase}">⏵</button></p>
                     <p><button class="pause" id="pause-${numCase}" style="display:none;">⏸</button></p>
-                
-                
+
+                     <p><button class="next" id="play-${numCase}">Suivant</button></p>
+                     
+                    </span>
              
-            <div class=musiqueDescription>${item.descriptionMusicale} </div>
-            <a href="${item.Youtube}"  title="Nouvelle fenêtre" alt="Clip de la musique sur YouTube">Ecouter sur Youtube</a>
+            
+            
        
             <audio id="audio-${numCase}" src="${item.url}" type="audio/mp3"></audio>
            </span> 
@@ -150,19 +159,42 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-/* Idée de mon code pour les boutons : 
-
-je selections tous les boutons qui ont la classe .popup */
+/* Apparition des crédits*/
 
 
-document.querySelectorAll('.popup').forEach(function (button) {
-    button.addEventListener("click", function () {
-        // Récupérer l'ID du span ciblé en utilisant l'attribut 'data-target' du bouton
-        var spanId = button.getAttribute('data-target');
-        var span = document.getElementById(spanId);
+button2 = document.querySelector('.credits')
+credit = document.getElementById('span2')
 
-        // Alterner entre les classes 'hidden' et 'visible'
-        span.classList.toggle('hidden');
-        span.classList.toggle('visible');
-    });
-});
+button2.addEventListener('click', function () {
+
+    if (credit.classList.contains('hidden')){
+
+         credit.classList.remove('hidden')
+    }
+   
+    else {
+        credit.classList.add('hidden')
+    }
+})
+
+
+
+
+/* Apparition du questionnaire */
+
+button1 = document.querySelector('.popup')
+form = document.getElementById('span1')
+
+button1.addEventListener('click', function () {
+
+    if (form.classList.contains('hidden')){
+
+         form.classList.remove('hidden')
+    }
+   
+    else {
+        form.classList.add('hidden')
+    }
+})
+
+
