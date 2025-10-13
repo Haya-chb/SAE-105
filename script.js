@@ -15,6 +15,7 @@ musiques.forEach(function(musique,i){
 
 
 document.addEventListener("DOMContentLoaded", function () {
+     afficherMusiques()
     var numCase = 0;
 
 
@@ -24,29 +25,28 @@ document.addEventListener("DOMContentLoaded", function () {
         numCase++;
         console.log(numCase);
 
-        var blocmusique = document.querySelector('.liste-musiques');
-        var section = document.createElement('section');
-
-
-        section.innerHTML = `
+       var blocmusique = document.querySelector('.liste-musiques');
+var elementDiv = document.createElement('div');
+elementDiv.className = 'element';
+elementDiv.innerHTML = `
         
            
-                <span class="element">
+                
                     <h3><em>${item.musique}</em></h3>
                     <p> Par : ${item.artiste} </p>
-                <span class=musiqueDescription>${item.descriptionMusicale} </span>
+                <span>${item.descriptionMusicale} </span>
+                
 
                 <a href="${item.Youtube}"  title="Nouvelle fenêtre" alt="Clip de la musique sur YouTube"class="youtube">Ecouter sur Youtube</a>
                     <span class=controle>
-                    <p><button class="next" id="play-${numCase}">Précédent</button></p>
+                    <p><button class="next" id="">Précédent</button></p>
 
                     <p><button class="play" id="play-${numCase}">⏵</button></p>
                     <p><button class="pause" id="pause-${numCase}" style="display:none;">⏸</button></p>
 
-                     <p><button class="next" id="play-${numCase}">Suivant</button></p>
+                     <p><button class="next" id="">Suivant</button></p>
                      
-                    </span>
-             
+                   
             
             
        
@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
         `;
 
        
-        blocmusique.appendChild(section);
+     blocmusique.appendChild(elementDiv);
     });
 
 
@@ -106,60 +106,95 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-   /* document.querySelectorAll('.buttonDescription').forEach(function (button) {
-        button.addEventListener("click", function () {
-            var index = button.id.split('-')[1];
-            var description = document.getElementById(`description-${index}`);
+    ///////////////////////////////////////
+
+     
 
 
-            document.querySelectorAll('.description').forEach(function (desc) {
-                desc.style.display = "none";
-            });
+    
+function afficherMusiques () {
+       var blocmusique2 = document.querySelector('.liste-musiques2');
+
+         blocmusique2.innerHTML = '';
+
+    if(autreData.length ==0){
+
+        document.querySelector('.sectionVosmusiques').style.display = 'none';
+
+    }
+    else {
+    document.querySelector('.sectionVosmusiques').style.display = 'block';
+
+    autreData.forEach(function (item) {
+
+        console.log("Musique : " + item.musique);
+         
+var elementDiv2 = document.createElement('div');
+elementDiv2.className = 'element2';
+elementDiv2.innerHTML = `
+        
+           
+                
+                    <h3><em>${item.musique}</em></h3>
+                    <p> Par : ${item.artiste} </p>
+                <span>${item.descriptionMusicale} </span>
+                
+
+                <a href="${item.youtube}"  title="Nouvelle fenêtre" alt="Clip de la musique sur YouTube"class="youtube">Ecouter sur Youtube</a>
+                    <span class=controle>
+                    <p><button class="next" id="">Précédent</button></p>
+
+                     <p><button class="next" id="">Suivant</button></p>
+                     
+
+           </span> 
+             
+        `;
+    blocmusique2.appendChild(elementDiv2);
+    })}};
 
 
-            if (description.style.display === "none") {
-                description.style.display = "flex";
-            } else {
-                description.style.display = "none";''
-            }
-        });
-    });
-*/
 
+////////////////////////////////////Formulaire////////////////////////////////
 
     var titre = document.getElementById('titre');
     var artiste = document.getElementById('artiste');
-    var url = document.getElementById('url');
+    var youtube = document.getElementById('url');
     var description = document.getElementById('description');
-
   
 
     document.querySelector('.valider').addEventListener('click', function () {
+       
         var titreValue = titre.value;
         var artisteValue = artiste.value;
-        var urlValue = url.value;
+        var youtubeValue = youtube.value;
         var descriptionValue = description.value;
 
+        if (titreValue && artisteValue && youtubeValue &&descriptionValue){
 
-        var urlVisitee = `https://perso-etudiant.u-pem.fr/~gambette/portrait/api.php?login=chaibi&courriel=philippe.gambette@u-pem.fr&message=${encodeURIComponent("Titre: " + titreValue + ", Ariste : " + artisteValue + "Url : " + url + "Description: " + descriptionValue)}`;
+       autreData.push({ 
+            musique : titreValue,
+            artiste : artisteValue,
+            descriptionMusicale : descriptionValue,
+            youtube : youtubeValue });
 
-        fetch(urlVisitee)
-            .then(function (response) {
-                return response.json();
-            })
-            .then(function (data) {
-                console.log("Réponse reçue : ");
-                console.log(data);
-            })
-            .catch(function (error) {
-                console.error("Erreur :", error);
-            });
+        titre.value = ""
+        artiste.value =""
+        youtube.value = ""
+        description.value=""
+
+        afficherMusiques()
+        }
+
     });
 });
 
+/////////////////////////////////////////////
 
 
-/* Apparition des crédits*/
+
+       
+//////////////////////////:/* Apparition des crédits*/////////////////////////
 
 
 button2 = document.querySelector('.credits')
@@ -180,7 +215,7 @@ button2.addEventListener('click', function () {
 
 
 
-/* Apparition du questionnaire */
+////////////////////////////* Apparition du questionnaire *///////////////////
 
 button1 = document.querySelector('.popup')
 form = document.getElementById('span1')

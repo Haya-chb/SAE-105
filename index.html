@@ -18,48 +18,50 @@
     
     <header id="haut">
 
+            <nav>
         <a href="#mesmusiques">Mes musiques</a>
-        <a href="#àpropos">À propos</a>
-        <a href="#vosmusiques">Vos musiques</a>
-        <button class="credits" > Crédits</button>
-
+        <a href="#apropos">À propos</a>
+        <a href="#vosmusiques" class="sectionVosmusiques">Vos musiques</a>
+        <a href="#credits" class="credits" > Crédits</a>
+            </nav>
 
 
         <h1>MusicoDiarie d'Haya CHB</h1>
     </header>
 
+    <span class="carroussel" >
     <div id = "mesmusiques" class="liste-musiques"></div>
 
+</span>
 
-
- <section id = "àpropos">
+ <section id = "apropos">
 
     <p>Depuis que je suis en détox de musiques, celles qui résonnent le plus en moi sont celles qui me rappellent d’où je viens ou des souvenirs d’enfance. <br>
     Maintenant montrer moi qui vous êtes à travers les musiques qui résonnent en vous.</p>
 
-    <button class="popup" > Ajouter votre musique</button>
+    <button class="popup"> Ajouter votre musique</button>
 
  </section>
-
- 
-
-        
+      
         <form id="span1" class="hidden" >
             <fieldset>
                 <legend>Ajouter votre musique : </legend>
                 <p>Tous les champs sont obligatoires.</p>
                 <p>
                     <label for="titre"> Titre de la musique : </label>
+                    <br>
                     <input type="text" id="titre" required>
                 </p>
 
                 <p>
                     <label for="artiste"> Artiste : </label>
+                    <br>
                     <input type="text" id="artiste" required>
                 </p>
 
                 <p>
                     <label for="url"> URL de la musique :</label>
+                    <br>
                     <input type="url" id="url" required>
                 </p>
 
@@ -76,22 +78,26 @@
 
 
 
-        <section>
+        <section class="sectionVosmusiques">
 
-<h2> Vos musiques : </h2>
 
-<div id = "vosmusiques">
+<h2 > Aperçus de vos musiques : </h2>
+
+<span class="carroussel">
+
+    
+<div id = "vosmusiques" class="liste-musiques2">
 
 
 </div>
-
+</span>
 
         </section>
 
 
         <span id="span2" class="hidden">
 
-<h2> Crédits </h2>
+<h2 id="credits"> Crédits </h2>
             
             <p> 
                 Ce site est le fruit du travail d'Haya Chaibi. La réutilisation ou la copie de ce site est interdite sansmon accord.
