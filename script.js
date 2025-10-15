@@ -15,6 +15,7 @@ musiques.forEach(function(musique,i){
 
 
 document.addEventListener("DOMContentLoaded", function () {
+     document.querySelectorAll('.prev').forEach(btn => btn.style.display = 'none');
      afficherMusiques()
     var numCase = 0;
 
@@ -34,25 +35,25 @@ elementDiv.innerHTML = `
                 
                     <h3><em>${item.musique}</em></h3>
                     <p> Par : ${item.artiste} </p>
-                <span>${item.descriptionMusicale} </span>
+                <span class ='description'>${item.descriptionMusicale} </span>
                 
 
-                <a href="${item.Youtube}"  title="Nouvelle fenêtre" alt="Clip de la musique sur YouTube"class="youtube">Ecouter sur Youtube</a>
+                
                     <span class=controle>
-                    <p><button class="next" id="">Précédent</button></p>
+                    <p><button class="prev" id="">Précédent</button></p>
 
                     <p><button class="play" id="play-${numCase}">⏵</button></p>
+                    
                     <p><button class="pause" id="pause-${numCase}" style="display:none;">⏸</button></p>
 
                      <p><button class="next" id="">Suivant</button></p>
-                     
-                   
-            
-            
-       
+                 
             <audio id="audio-${numCase}" src="${item.url}" type="audio/mp3"></audio>
+
+
            </span> 
-            
+
+            <a href="${item.Youtube}"  title="Nouvelle fenêtre" alt="Clip de la musique sur YouTube"class="youtube">Ecouter sur Youtube</a>
         `;
 
        
@@ -120,6 +121,7 @@ function afficherMusiques () {
     if(autreData.length ==0){
 
         document.querySelector('.sectionVosmusiques').style.display = 'none';
+        
 
     }
     else {
@@ -137,14 +139,12 @@ elementDiv2.innerHTML = `
                 
                     <h3><em>${item.musique}</em></h3>
                     <p> Par : ${item.artiste} </p>
-                <span>${item.descriptionMusicale} </span>
+                <span class= "description">${item.descriptionMusicale} </span>
                 
 
                 <a href="${item.youtube}"  title="Nouvelle fenêtre" alt="Clip de la musique sur YouTube"class="youtube">Ecouter sur Youtube</a>
                     <span class=controle>
-                    <p><button class="next" id="">Précédent</button></p>
-
-                     <p><button class="next" id="">Suivant</button></p>
+                    
                      
 
            </span> 
@@ -189,8 +189,11 @@ elementDiv2.innerHTML = `
     });
 });
 
-/////////////////////////////////////////////
 
+
+
+
+  
 
 
        
@@ -214,6 +217,26 @@ button2.addEventListener('click', function () {
 
 
 
+/////////////////////////////////////////////
+
+Suppr = document.querySelector('.suppr')
+
+
+Suppr.addEventListener('click', function () {
+
+     if (!credit.classList.contains('hidden')){
+
+         credit.classList.add('hidden')
+    }
+   
+    else {
+        credit.classList.remove('hidden')
+    }
+})
+
+
+
+
 
 ////////////////////////////* Apparition du questionnaire *///////////////////
 
@@ -233,3 +256,74 @@ button1.addEventListener('click', function () {
 })
 
 
+////////////////////////////////////////////////////////
+
+let num = 0;
+
+document.addEventListener('click', function(e) {
+    const listeMusiques = document.querySelector('.liste-musiques');
+    const premierElement = document.querySelector('.element');
+   
+    if (premierElement && e.target.closest('.liste-musiques')) {
+        const hauteurElement = premierElement.offsetHeight;
+       
+        // Bouton Suivant
+        if (e.target.classList.contains('next')) {
+            num = num + 1;
+            
+            // Limiter le déplacement
+            if (num >= data.length) {
+                num = data.length - 1;
+            }
+            
+            listeMusiques.style.transform = `translateY(-${(num * hauteurElement) + (num * 10)}px)`;
+            
+            // Gérer l'affichage des boutons
+            document.querySelectorAll('.prev').forEach(btn => btn.style.display = 'inline');
+            
+            if (num >= data.length - 1) {
+                document.querySelectorAll('.next').forEach(btn => btn.style.display = 'none');
+            }
+        }
+        
+        // Bouton Précédent
+        else if (e.target.classList.contains('prev')) {
+            num = num - 1;
+            
+            // Limiter le déplacement
+            if (num < 0) {
+                num = 0;
+            }
+            
+            listeMusiques.style.transform = `translateY(-${(num * hauteurElement) + (num * 25)}px)`;
+            
+            // Gérer l'affichage des boutons
+            document.querySelectorAll('.next').forEach(btn => btn.style.display = 'inline');
+            
+            if (num <= 0) {
+                document.querySelectorAll('.prev').forEach(btn => btn.style.display = 'none');
+            }
+        }
+    }
+});
+
+
+
+//////////////////////////////////////////////////////////////////////
+
+window.addEventListener('scroll', function () {
+    const imageMobile = document.querySelector('.casque');
+    let scrollY = window.scrollY;
+    
+    if (scrollY >= 900) {
+        imageMobile.style.position = 'absolute';
+        imageMobile.style.top = '1500px';
+        imageMobile.style.right = '200px';
+        imageMobile.style.transform = 'scale(4)';
+    } else {
+        imageMobile.style.position = 'fixed'; 
+        imageMobile.style.top = `${scrollY}px`;
+        imageMobile.style.right = '40px'
+        imageMobile.style.transform = 'scale(1)'; 
+    }
+});
